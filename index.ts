@@ -19,7 +19,7 @@ export function validate<T>( validate: AttrToValidate<T> ): any {
 
 export class SimpleAsyncValidateConfig {
     static onFailure: 
-        <T>(error: string) => T = <String>(error: string) => error as String;
+        (error: string) => any = (error: string) => error;
 }
 
 export type PayloadValidation<T> = AttrToValidate<T>;
