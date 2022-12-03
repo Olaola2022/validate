@@ -7,10 +7,16 @@ export const runValidations = async <T>(validations: AttrToValidate<T>, ...args:
         const payload = args.find( arg => Object.keys(arg).includes(key as string));
         const attrName = key as string;
         const validation = validations[key];
-        if (!payload && validation.nullable === true) continue;
+        if (!payload && validation.nullable === true) {
+            continue;
+        }
         if (!payload && !validation.nullable) throw new ValidationError(`Presence error: ${attrName} should be present`);
+        
         const attrValue = payload[key];
-        if (!attrValue && validation.nullable === false) throw new ValidationError(`Presence error: ${attrName} should be present`);
+        if (!attrValue && validation.nullable === false) {
+            throw new ValidationError(`Presence error: ${attrName} should be present`);
+        }
+        if (!attrValue && validation.nullable) continue;
         if (validation.blank === false) _.validateBlank(attrName, attrValue);
         if (validation.in) _.validateInclusion(attrName, attrValue, validation.in);
         if (validation.minLength) _.validateMinLength(attrName, attrValue, validation.minLength);

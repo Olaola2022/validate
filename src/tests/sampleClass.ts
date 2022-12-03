@@ -1,6 +1,11 @@
 import { validate } from "@simple-async-validate";
 
 export default class SampleClass {
+    @validate({sampleAttr: { nullable: true, minLength: 3}})
+    async validateNullable(data: {sampleAttr?: string }): Promise<boolean>{
+        return true
+    }
+
     @validate({ sampleAttr: { blank: false} })
     async validateBlank(data: { sampleAttr: string }): Promise<boolean> {
         return true;

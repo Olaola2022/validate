@@ -1,4 +1,7 @@
 export default class SampleClass {
+    validateNullable(data: {
+        sampleAttr?: string;
+    }): Promise<boolean>;
     validateBlank(data: {
         sampleAttr: string;
     }): Promise<boolean>;
