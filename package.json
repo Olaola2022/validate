@@ -1,0 +1,42 @@
+{
+  "name": "validate",
+  "version": "0.0.0-development",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "semantic-release": "semantic-release --branches main",
+    "commit": "git-cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fdiaz-olagg/validate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fdiaz-olagg/validate/issues"
+  },
+  "homepage": "https://github.com/fdiaz-olagg/validate#readme",
+  "devDependencies": {
+    "@types/jest": "^29.2.3",
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "^3.3.0",
+    "jest": "^29.3.1",
+    "semantic-release": "^19.0.5",
+    "ts-jest": "^29.0.3",
+    "typescript": "^4.9.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "@types/node": "^18.11.10"
+  }
+}
