@@ -1,4 +1,4 @@
-import { validate } from "../validate";
+import { validate } from "@simple-async-validate";
 
 export default class SampleClass {
     @validate({ sampleAttr: { blank: false} })
