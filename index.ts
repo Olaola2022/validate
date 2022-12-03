@@ -10,9 +10,16 @@ export function validate<T>( validate: AttrToValidate<T> ): any {
             return await runValidations(validate, ...args)
                 .then( () => originalMethod.apply(this, args) )
                 .catch( (error: ValidationError) => {
-                    return error.message;
+                    return SimpleAsyncValidateConfig.onFailure(error.message)
                 });
         };
         return descriptor;
     };
 }
+
+export class SimpleAsyncValidateConfig {
+    static onFailure: 
+        <T>(error: string) => T = <String>(error: string) => error as String;
+}
+
+export type PayloadValidation<T> = AttrToValidate<T>;
