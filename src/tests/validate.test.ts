@@ -3,6 +3,15 @@ import SampleClass from "./sampleClass";
 describe("Validate decorator", () => {
     const sampleClass = new SampleClass();
 
+    it("should not validate if nullable", async() => {
+        const success = await sampleClass.validateNullable({sampleAttr: undefined});
+        const failure = await sampleClass.validateNullable({sampleAttr: "h!"});
+        
+        expect(success).toBe(true);
+        expect(failure).toBe("Length error: sampleAttr should be 3 characters at least");
+    });
+
+
     it("should validate blank", async() => {
         const failure = await sampleClass.validateBlank({sampleAttr: ""});
         const success = await sampleClass.validateBlank({sampleAttr: "hello world!"});
