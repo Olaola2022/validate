@@ -2,7 +2,8 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jest-environment-node',
+  rootDir: "./",
   moduleNameMapper: {
-    '@simple-async-validate': ['<rootDir>/src/'],
+    '@simple-async-validate': ['<rootDir>/'],
 },
 };

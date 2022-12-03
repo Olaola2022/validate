@@ -2,21 +2,6 @@ import { AttrToValidate, Validations } from "./types";
 import { ValidationError } from "./validationError";
 import * as _ from "./validations";
 
-export function validate<T>( validate: AttrToValidate<T> ): any {
-    return <U>(target: U, propertyKey: string, descriptor: PropertyDescriptor) => {
-        const originalMethod = descriptor.value;
-       
-        descriptor.value = async function(...args: any[]) {
-            return await runValidations(validate, ...args)
-                .then( () => originalMethod.apply(this, args) )
-                .catch( (error: ValidationError) => {
-                    return error.message;
-                });
-        };
-        return descriptor;
-    };
-}
-
 export const runValidations = async <T>(validations: AttrToValidate<T>, ...args: any[]): Promise<boolean> => {
     for (const key of (Object.keys(validations) as Array<keyof T>)) {
         const payload = args.find( arg => Object.keys(arg).includes(key as string));
