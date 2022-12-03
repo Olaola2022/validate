@@ -13,7 +13,11 @@
       "rootDir": "src",
       "sourceMap": true,
       "lib": ["esnext"],
-      "resolveJsonModule": true
+      "resolveJsonModule": true,
+      "baseUrl": "./",
+      "paths": {
+        "@simple-async-validate": ["src/"]
+      }
     }
   }
   
