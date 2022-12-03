@@ -25,7 +25,6 @@ export const runValidations = async <T>(validations: AttrToValidate<T>, ...args:
         if (!payload && validation.nullable === true) continue;
         if (!payload && !validation.nullable) throw new ValidationError(`Presence error: ${attrName} should be present`);
         const attrValue = payload[key];
-        
         if (!attrValue && validation.nullable === false) throw new ValidationError(`Presence error: ${attrName} should be present`);
         if (validation.blank === false) _.validateBlank(attrName, attrValue);
         if (validation.in) _.validateInclusion(attrName, attrValue, validation.in);
