@@ -10,13 +10,13 @@
       "strictPropertyInitialization": false,
       "skipLibCheck": true,
       "outDir": "./dist",
-      "rootDir": "src",
+      "rootDir": "./",
       "sourceMap": true,
       "lib": ["esnext"],
       "resolveJsonModule": true,
       "baseUrl": "./",
       "paths": {
-        "@simple-async-validate": ["src/"]
+        "@simple-async-validate": ["./index.ts"]
       }
     }
   }
