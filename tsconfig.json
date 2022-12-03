@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
       "target": "es2016",
+      "declaration": true,
       "experimentalDecorators": true,
       "emitDecoratorMetadata": true,
       "module": "commonjs",
@@ -9,7 +10,7 @@
       "strict": true,
       "strictPropertyInitialization": false,
       "skipLibCheck": true,
-      "outDir": "./dist",
+      "outDir": "lib",
       "rootDir": "./",
       "sourceMap": true,
       "lib": ["esnext"],
