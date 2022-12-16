@@ -6,7 +6,7 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest",
-    "semantic-release": "semantic-release --branches main",
+    "semantic-release": "semantic-release --branches master",
     "commit": "git-cz"
   },
   "repository": {
