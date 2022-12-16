@@ -2,8 +2,8 @@
   "name": "@olagg/validate",
   "version": "0.0.0-development",
   "description": "",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
     "semantic-release": "semantic-release --branches master",
