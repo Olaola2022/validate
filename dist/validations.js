@@ -42,8 +42,9 @@ const validateURL = (name, attr) => {
 exports.validateURL = validateURL;
 const validateCustom = (name, attr, callback) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield callback(attr);
-    if (!result)
-        throw new validationError_1.ValidationError(`Custom validation error: ${name} is invalid`);
+    if (!result || (typeof result === "object" && !result.result)) {
+        throw new validationError_1.ValidationError(`Custom validation error: ${name} is invalid. ${typeof result === "object" ? result.message : ""}`);
+    }
 });
 exports.validateCustom = validateCustom;
 const validateRange = (name, attr, between) => {

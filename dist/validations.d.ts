@@ -3,7 +3,10 @@ export declare const validateMaxLength: (name: string, attr: unknown, maxLength:
 export declare const validateInclusion: <T>(name: string, attr: T, mustBeIn: T[]) => void;
 export declare const validateBlank: (name: string, attr: unknown) => void;
 export declare const validateURL: (name: string, attr: unknown) => void;
-export declare const validateCustom: (name: string, attr: unknown, callback: (v: unknown) => Promise<boolean>) => Promise<void>;
+export declare const validateCustom: (name: string, attr: unknown, callback: (v: unknown) => Promise<boolean | {
+    result: boolean;
+    message?: string;
+}>) => Promise<void>;
 export declare const validateRange: (name: string, attr: unknown, between: {
     min: number;
     max: number;
