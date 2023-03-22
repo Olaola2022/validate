@@ -9,7 +9,10 @@ export declare type Validations = {
     };
     in?: any[];
     isURL?: boolean;
-    custom?: (value: unknown) => Promise<boolean>;
+    custom?: (value: unknown) => Promise<boolean | {
+        result: boolean;
+        message?: string;
+    }>;
     isNumeric?: boolean;
     isUUID?: boolean;
 };
